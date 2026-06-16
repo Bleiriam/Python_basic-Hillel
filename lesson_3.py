@@ -131,27 +131,27 @@
 #
 # # # v2
 
-# number1 = float(input("Введіть перше число: "))
-# operator = input("Введіть оператор (+, -, *, /): ")
-# number2 = float(input("Введіть друге число: "))
+number1 = float(input("Введіть перше число: "))
+operator = input("Введіть оператор (+, -, *, /): ")
+number2 = float(input("Введіть друге число: "))
 
-# def fmt(n):
-#     return int(n) if n == int(n) else n
+def fmt(n):
+    return int(n) if n == int(n) else n
 
-# match operator:
-#     case "+":
-#         print(fmt(number1 + number2))
-#     case "-":
-#         print(fmt(number1 - number2))
-#     case "*":
-#         print(fmt(number1 * number2))
-#     case "/":
-#         if number2 == 0:
-#             print("Помилка: ділення на нуль!")
-#         else:
-#             print(fmt(number1 / number2))
-#     case _:
-#         print("Невірний оператор!")
+match operator:
+    case "+":
+        print(fmt(number1 + number2))
+    case "-":
+        print(fmt(number1 - number2))
+    case "*":
+        print(fmt(number1 * number2))
+    case "/":
+        if number2 == 0:
+            print("Помилка: ділення на нуль!")
+        else:
+            print(fmt(number1 / number2))
+    case _:
+        print("Невірний оператор!")
 
 # _ = "test user"
 # print(_)
@@ -394,15 +394,15 @@
 # Важливо! Потрібно створити рішення, яке обробляє 3 випадки - список порожній,
 # у списку парна кількість елементів і в списку непарна кількість елементів.
 
-nums = [1, 2, 3, 4, 5]
-middle_index = len(nums) // 2
-
-if len(nums) % 2 != 0:
-    middle_index += 1
-
-part1 = nums[:middle_index]
-part2 = nums[middle_index:]
-print(part1)
-print(part2)
-result = [part1, part2]
-print(result)
+# nums = []
+# middle_index = len(nums) // 2
+#
+# if len(nums) % 2 != 0:
+#     middle_index += 1
+#
+# part1 = nums[:middle_index]
+# part2 = nums[middle_index:]
+# print(part1)
+# print(part2)
+# result = [part1, part2]
+# print(result)
