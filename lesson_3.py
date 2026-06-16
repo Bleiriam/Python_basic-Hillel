@@ -131,27 +131,27 @@
 #
 # # # v2
 
-number1 = float(input("Введіть перше число: "))
-operator = input("Введіть оператор (+, -, *, /): ")
-number2 = float(input("Введіть друге число: "))
+# number1 = float(input("Введіть перше число: "))
+# operator = input("Введіть оператор (+, -, *, /): ")
+# number2 = float(input("Введіть друге число: "))
 
-def fmt(n):
-    return int(n) if n == int(n) else n
+# def fmt(n):
+#     return int(n) if n == int(n) else n
 
-match operator:
-    case "+":
-        print(fmt(number1 + number2))
-    case "-":
-        print(fmt(number1 - number2))
-    case "*":
-        print(fmt(number1 * number2))
-    case "/":
-        if number2 == 0:
-            print("Помилка: ділення на нуль!")
-        else:
-            print(fmt(number1 / number2))
-    case _:
-        print("Невірний оператор!")
+# match operator:
+#     case "+":
+#         print(fmt(number1 + number2))
+#     case "-":
+#         print(fmt(number1 - number2))
+#     case "*":
+#         print(fmt(number1 * number2))
+#     case "/":
+#         if number2 == 0:
+#             print("Помилка: ділення на нуль!")
+#         else:
+#             print(fmt(number1 / number2))
+#     case _:
+#         print("Невірний оператор!")
 
 # _ = "test user"
 # print(_)
@@ -369,12 +369,12 @@ match operator:
 # [] => []
 # [12, 3, 4, 10, 8] => [8, 12, 3, 4, 10]
 
-# nums = [12, 3, 4, 10, 8]
-# if len(nums) > 1:
-#     nums.insert(0, nums[-1])
-#     nums.pop()
+nums = [12, 3, 4, 10, 8]
+if len(nums) > 1:
+    nums.insert(0, nums[-1])
+    nums.pop()
 
-# print(nums)
+print(nums)
 
 ####
 # [1, 2, 3, 4, 5, 6] => [[1, 2, 3], [4, 5, 6]]
