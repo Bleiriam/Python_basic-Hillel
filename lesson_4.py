@@ -120,9 +120,20 @@
 #
 # print()
 #
-# for i in range(0, len(nums), 2):  # range(5) -> 0, 2, 4
-#     print(nums[i], end=' ')
-#
+
+#nums = [0, 1, 7, 2, 4, 8]
+#nums = [1, 3, 5]
+#nums = [6]
+nums = []
+
+if len(nums) == 0:
+    print(0)
+else:
+    sum_even = 0
+    for i in range(0, len(nums), 2):
+        sum_even += nums[i]
+    print(sum_even * nums[-1])
+
 # print()
 #
 # number = 0
@@ -209,16 +220,16 @@
 # lst = [0, 1, 0, 12, 3]
 # lst = [0]
 # lst = [1, 0, 13, 0, 0, 0, 5]
-lst = [9, 0, 7, 31, 0, 45, 0, 45, 0, 45, 0, 0, 96, 0]
+# lst = [9, 0, 7, 31, 0, 45, 0, 45, 0, 45, 0, 0, 96, 0]
 
-storage = []
-for i in lst:
-    if i != 0:
-        storage.append(i)
-for q in lst:
-    if q == 0:
-        storage.append(q)
-print(storage)
+# storage = []
+# for i in lst:
+#     if i != 0:
+#         storage.append(i)
+# for q in lst:
+#     if q == 0:
+#         storage.append(q)
+# print(storage)
 
 # #
 # numbers += [1, 2, 3, 4]  # numbers = numbers + [1, 2, 3, 4]
