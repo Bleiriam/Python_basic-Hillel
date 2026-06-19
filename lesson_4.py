@@ -124,15 +124,15 @@
 #nums = [0, 1, 7, 2, 4, 8]
 #nums = [1, 3, 5]
 #nums = [6]
-nums = []
+# nums = []
 
-if len(nums) == 0:
-    print(0)
-else:
-    sum_even = 0
-    for i in range(0, len(nums), 2):
-        sum_even += nums[i]
-    print(sum_even * nums[-1])
+# if len(nums) == 0:
+#     print(0)
+# else:
+#     sum_even = 0
+#     for i in range(0, len(nums), 2):
+#         sum_even += nums[i]
+#     print(sum_even * nums[-1])
 
 # print()
 #
@@ -193,7 +193,15 @@ else:
 
 ####
 # #
-# import random
+
+import random
+number_elements = random.randint(3, 10)
+my_list = random.choices(range(0,10), k = number_elements)
+print(my_list)
+second_list = []
+for i in (0, 2, len(my_list) - 2):
+    second_list.append(my_list[i])
+print(second_list)
 
 # print(random.randint(1, 10))
 # NUMS_SIZE = 10
