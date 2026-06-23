@@ -406,34 +406,34 @@
 # print(text)
 
 #
-import keyword
-import string
+# import keyword
+# import string
 
-message = input("Enter your message: ")
-result = True
+# message = input("Enter your message: ")
+# result = True
 
-if not message:
-    result = False
+# if not message:
+#     result = False
 
-if message[0].isdigit():
-    result = False
+# if message[0].isdigit():
+#     result = False
 
-for i in message:
-    if i == " " or i.isupper():
-        result = False
+# for i in message:
+#     if i == " " or i.isupper():
+#         result = False
 
-forbidden = set(string.punctuation) - {"_"}
-for i in message:
-    if i in forbidden:
-        result = False
+# forbidden = set(string.punctuation) - {"_"}
+# for i in message:
+#     if i in forbidden:
+#         result = False
 
-if "__" in message:
-    result = False
+# if "__" in message:
+#     result = False
 
-if keyword.iskeyword(message):
-    result = False
+# if keyword.iskeyword(message):
+#     result = False
 
-print(result)
+# print(result)
 #
 # test_data = ["_", "__", "___", "import"]
 #
@@ -477,9 +477,34 @@ print(result)
 #
 # current_tern = first_player
 #
-# while True:
-#     for row in game_field:
-#         print(row)
+while True:
+    numb_one = float(input("Enter first number = "))
+    deystvie = input("Enter character (+, -, /, *): ")
+    numb_two = float(input("Enter second number = "))
+
+    if deystvie == "+":
+        result = numb_one + numb_two
+    elif deystvie == "-":
+        result = numb_one - numb_two
+    elif deystvie == "*":
+        result = numb_one * numb_two
+    elif deystvie == "/":
+        if numb_two == 0:
+            print("Forbidden divide by 0!")
+            continue
+        result = numb_one / numb_two
+    else:
+        print("Unknown operation!")
+        continue
+
+    if result.is_integer():
+        print(int(result))
+    else:
+        print(result)
+
+    ask = input("Do you want again? (y/n): ")
+    if ask.lower() not in ("y", "yes"):
+        break
 #
 #     print(f"{current_tern} tern!")
 #     coord_x = int(input("Enter x coord: "))
