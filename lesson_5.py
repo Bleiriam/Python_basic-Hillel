@@ -323,7 +323,20 @@
 
 ##########################
 # import random
-# import string
+import string
+
+message = input("Enter your message: ")
+
+for char in string.punctuation:
+    message = message.replace(char, " ")
+
+words = message.split()
+hashtag = "#" + "".join(word.capitalize() for word in words)
+
+if len(hashtag) > 140:
+    hashtag = hashtag[:140]
+
+print(hashtag)
 #
 # MIN_PASSWORD_LENGTH = 8
 # MAX_PASSWORD_LENGTH = 16
@@ -477,34 +490,34 @@
 #
 # current_tern = first_player
 #
-while True:
-    numb_one = float(input("Enter first number = "))
-    deystvie = input("Enter character (+, -, /, *): ")
-    numb_two = float(input("Enter second number = "))
+# while True:
+#     numb_one = float(input("Enter first number = "))
+#     deystvie = input("Enter character (+, -, /, *): ")
+#     numb_two = float(input("Enter second number = "))
 
-    if deystvie == "+":
-        result = numb_one + numb_two
-    elif deystvie == "-":
-        result = numb_one - numb_two
-    elif deystvie == "*":
-        result = numb_one * numb_two
-    elif deystvie == "/":
-        if numb_two == 0:
-            print("Forbidden divide by 0!")
-            continue
-        result = numb_one / numb_two
-    else:
-        print("Unknown operation!")
-        continue
+#     if deystvie == "+":
+#         result = numb_one + numb_two
+#     elif deystvie == "-":
+#         result = numb_one - numb_two
+#     elif deystvie == "*":
+#         result = numb_one * numb_two
+#     elif deystvie == "/":
+#         if numb_two == 0:
+#             print("Forbidden divide by 0!")
+#             continue
+#         result = numb_one / numb_two
+#     else:
+#         print("Unknown operation!")
+#         continue
 
-    if result.is_integer():
-        print(int(result))
-    else:
-        print(result)
+#     if result.is_integer():
+#         print(int(result))
+#     else:
+#         print(result)
 
-    ask = input("Do you want again? (y/n): ")
-    if ask.lower() not in ("y", "yes"):
-        break
+#     ask = input("Do you want again? (y/n): ")
+#     if ask.lower() not in ("y", "yes"):
+#         break
 #
 #     print(f"{current_tern} tern!")
 #     coord_x = int(input("Enter x coord: "))
