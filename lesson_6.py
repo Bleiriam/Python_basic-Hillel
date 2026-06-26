@@ -20,13 +20,34 @@
 # бути жодним із зареєстрованих слів.
 
 #ДЗ 6.1
-import string
+# import string
 
-new_string = input("Введіть дві літери через дефіс: ")
-first = string.ascii_letters.index(new_string[0])
-second = string.ascii_letters.index(new_string[2])
+# new_string = input("Введіть дві літери через дефіс: ")
+# first = string.ascii_letters.index(new_string[0])
+# second = string.ascii_letters.index(new_string[2])
 
-print(string.ascii_letters[first:second + 1])
+# print(string.ascii_letters[first:second + 1])
+
+#ДЗ 6.2
+value = int(input("Введіть число секунд від 0 до 8639999: "))
+
+if 0 <= value < 8640000:
+    day, time_s = divmod(value, 86400)
+    hours, m = divmod(time_s, 3600)
+    minutes, sec = divmod(m, 60)
+
+    if str(day)[-2:] in ("11", "12", "13", "14"):
+        end = "днів"
+    elif str(day)[-1] in ("2", "3", "4"):
+        end = "дні"
+    elif str(day)[-1] == "1":
+        end = "день"
+    else:
+        end = "днів"
+
+    print(f"{day} {end}, {str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(sec).zfill(2)}")
+else:
+    print("Число має бути від 0 до 8639999")
 
 # import keyword
 #
