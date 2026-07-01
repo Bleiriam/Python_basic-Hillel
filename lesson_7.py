@@ -337,6 +337,7 @@
 
 
 #ДЗ 7.1
+
 # def say_hi(name, age):
 #     return f"Hi. My name is {name} and I'm {age} years old"
 
@@ -346,18 +347,35 @@
 
 #ДЗ 7.2
 
-def correct_sentence(text):
-    q = text[0].upper() + text[1:]
-    if q[-1] != ".":
-        q += "."
-    return "".join(q)
+# def correct_sentence(text):
+#     q = text[0].upper() + text[1:]
+#     if q[-1] != ".":
+#         q += "."
+#     return "".join(q)
 
 
-assert correct_sentence("greetings, friends") == "Greetings, friends.", "Test1"
-assert correct_sentence("hello") == "Hello.", "Test2"
-assert correct_sentence("Greetings. Friends") == "Greetings. Friends.", "Test3"
-assert correct_sentence("Greetings, friends.") == "Greetings, friends.", "Test4"
-assert correct_sentence("greetings, friends.") == "Greetings, friends.", "Test5"
+# assert correct_sentence("greetings, friends") == "Greetings, friends.", "Test1"
+# assert correct_sentence("hello") == "Hello.", "Test2"
+# assert correct_sentence("Greetings. Friends") == "Greetings. Friends.", "Test3"
+# assert correct_sentence("Greetings, friends.") == "Greetings, friends.", "Test4"
+# assert correct_sentence("greetings, friends.") == "Greetings, friends.", "Test5"
+# print("ОК")
+
+#ДЗ 7.3
+
+def second_index(text, some_str):
+    if text.count(some_str) > 1:
+        first = text.index(some_str)
+        second = text.index(some_str, first + 1)
+        return second
+    else:
+        return None
+
+
+assert second_index("sims", "s") == 3, "Test1"
+assert second_index("find the river", "e") == 12, "Test2"
+assert second_index("hi", "h") is None, "Test3"
+assert second_index("Hello, hello", "lo") == 10, "Test4"
 print("ОК")
 
 
