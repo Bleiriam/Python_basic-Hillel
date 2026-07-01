@@ -363,20 +363,36 @@
 
 #ДЗ 7.3
 
-def second_index(text, some_str):
-    if text.count(some_str) > 1:
-        first = text.index(some_str)
-        second = text.index(some_str, first + 1)
-        return second
-    else:
-        return None
+# def second_index(text, some_str):
+#     if text.count(some_str) > 1:
+#         first = text.index(some_str)
+#         second = text.index(some_str, first + 1)
+#         return second
+#     else:
+#         return None
 
 
-assert second_index("sims", "s") == 3, "Test1"
-assert second_index("find the river", "e") == 12, "Test2"
-assert second_index("hi", "h") is None, "Test3"
-assert second_index("Hello, hello", "lo") == 10, "Test4"
-print("ОК")
+# assert second_index("sims", "s") == 3, "Test1"
+# assert second_index("find the river", "e") == 12, "Test2"
+# assert second_index("hi", "h") is None, "Test3"
+# assert second_index("Hello, hello", "lo") == 10, "Test4"
+# print("ОК")
+
+#ДЗ 7.4
+
+def common_elements():
+    first_set = set()
+    second_set = set()
+    for q in range(100):
+        if q % 3 == 0:
+            first_set.add(q)
+        if q % 5 == 0:
+            second_set.add(q)
+    return first_set.intersection(second_set)
+
+
+assert common_elements() == {0, 75, 45, 15, 90, 60, 30}
+print(common_elements())
 
 
 #
