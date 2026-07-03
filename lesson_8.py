@@ -27,22 +27,36 @@
 
 #ДЗ 8.2
 
-def is_palindrome(text):
-    first_text = ""
-    second_text = ""
-    for i in text:
-        if i.isalnum():
-            first_text += i
-    for i in reversed(text):
-        if i.isalnum():
-            second_text += i
-    return first_text.lower() == second_text.lower()
+# def is_palindrome(text):
+#     first_text = ""
+#     second_text = ""
+#     for i in text:
+#         if i.isalnum():
+#             first_text += i
+#     for i in reversed(text):
+#         if i.isalnum():
+#             second_text += i
+#     return first_text.lower() == second_text.lower()
 
 
-# assert is_palindrome("A man, a plan, a canal: Panama") == True, "Test1"
-# assert is_palindrome("0P") == False, "Test2"
-# assert is_palindrome("a.") == True, "Test3"
-assert is_palindrome("aurora") == False, "Test4"
+# # assert is_palindrome("A man, a plan, a canal: Panama") == True, "Test1"
+# # assert is_palindrome("0P") == False, "Test2"
+# # assert is_palindrome("a.") == True, "Test3"
+# assert is_palindrome("aurora") == False, "Test4"
+# print("ОК")
+
+#ДЗ 8.3
+
+def find_unique_value(some_list):
+    for i in some_list:
+        if some_list.count(i) == 1:
+            return i
+
+
+# find_unique_value([1, 2, 1, 1])
+# assert find_unique_value([1, 2, 1, 1]) == 2, "Test1"
+# assert find_unique_value([2, 3, 3, 3, 5, 5]) == 2, "Test2"
+assert find_unique_value([5, 5, 5, 2, 2, 0.5]) == 0.5, "Test3"
 print("ОК")
 
 
