@@ -10,19 +10,39 @@
 
 #ДЗ 8.1
 
-def add_one(some_list):
-    new = ""
-    for w in some_list:
-        new += str(w)
-    new = int(new) + 1
-    result = [int(i) for i in str(new)]
-    return result
+# def add_one(some_list):
+#     new = ""
+#     for w in some_list:
+#         new += str(w)
+#     new = int(new) + 1
+#     result = [int(i) for i in str(new)]
+#     return result
 
 
-# assert add_one([1, 2, 3, 4]) == [1, 2, 3, 5], "Test1"
-# assert add_one([9, 9, 9]) == [1, 0, 0, 0], "Test2"
-# assert add_one([0]) == [1], "Test3"
-assert add_one([9]) == [1, 0], "Test4"
+# # assert add_one([1, 2, 3, 4]) == [1, 2, 3, 5], "Test1"
+# # assert add_one([9, 9, 9]) == [1, 0, 0, 0], "Test2"
+# # assert add_one([0]) == [1], "Test3"
+# assert add_one([9]) == [1, 0], "Test4"
+# print("ОК")
+
+#ДЗ 8.2
+
+def is_palindrome(text):
+    first_text = ""
+    second_text = ""
+    for i in text:
+        if i.isalnum():
+            first_text += i
+    for i in reversed(text):
+        if i.isalnum():
+            second_text += i
+    return first_text.lower() == second_text.lower()
+
+
+# assert is_palindrome("A man, a plan, a canal: Panama") == True, "Test1"
+# assert is_palindrome("0P") == False, "Test2"
+# assert is_palindrome("a.") == True, "Test3"
+assert is_palindrome("aurora") == False, "Test4"
 print("ОК")
 
 
