@@ -15,23 +15,44 @@
 
 #ДЗ 10.1
 
-def pow(x):
-    return x**2
+# def pow(x):
+#     return x**2
 
 
-def some_gen(begin, end, func):
-    coun = 0
-    while coun < end:
-        yield begin
-        begin = func(begin)
-        coun += 1
+# def some_gen(begin, end, func):
+#     coun = 0
+#     while coun < end:
+#         yield begin
+#         begin = func(begin)
+#         coun += 1
 
 
-from inspect import isgenerator
+# from inspect import isgenerator
 
-gen = some_gen(2, 4, pow)
-assert isgenerator(gen) == True, "Test1"
-# assert list(gen) == [2, 4, 16, 256], "Test2"
+# gen = some_gen(2, 4, pow)
+# assert isgenerator(gen) == True, "Test1"
+# # assert list(gen) == [2, 4, 16, 256], "Test2"
+# print("OK")
+
+#ДЗ 10.2
+
+def first_word(text):
+    revo = ""
+    for i in text:
+        if i.isalpha() or i == "'":
+            revo += i
+        else:
+            if revo:
+                return revo
+    return revo
+
+
+# assert first_word("Hello world") == "Hello", "Test1"
+# assert first_word("greetings, friends") == "greetings", "Test2"
+# assert first_word("don't touch it") == "don't", "Test3"
+# assert first_word(".., and so on ...") == "and", "Test4"
+# assert first_word("hi") == "hi", "Test5"
+assert first_word("Hello.World") == "Hello", "Test6"
 print("OK")
 
 ####
