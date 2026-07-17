@@ -33,28 +33,37 @@
 
 #ДЗ 12.2. Заповнення списку кубами чисел
 
-def generate_cube_numbers(end):
-    for i in range(2, end + 1):
-        cub = i**3
-        if cub > end:
-            return
-        yield cub
+# def generate_cube_numbers(end):
+#     for i in range(2, end + 1):
+#         cub = i**3
+#         if cub > end:
+#             return
+#         yield cub
 
 
-from inspect import isgenerator
+# from inspect import isgenerator
 
-gen = generate_cube_numbers(1)
-assert isgenerator(gen) == True, "Test0"
+# gen = generate_cube_numbers(1)
+# assert isgenerator(gen) == True, "Test0"
 
-assert list(generate_cube_numbers(10)) == [8], "оскільки воно менше 10."
-# assert list(generate_cube_numbers(100)) == [8, 27, 64], '5 у кубі це 125, а воно вже більше 100'
-# assert list(generate_cube_numbers(1000)) == [8, 27, 64, 125, 216, 343, 512, 729, 1000], '10 у кубі це 1000'
+# assert list(generate_cube_numbers(10)) == [8], "оскільки воно менше 10."
+# # assert list(generate_cube_numbers(100)) == [8, 27, 64], '5 у кубі це 125, а воно вже більше 100'
+# # assert list(generate_cube_numbers(1000)) == [8, 27, 64, 125, 216, 343, 512, 729, 1000], '10 у кубі це 1000'
+# print("Ok")
+
+# ДЗ 12.3. Перевірка на парність.
+
+def is_even(number):
+    q = bin(number)
+    if q[-1] == str(0):
+        return True
+    else:
+        return False
+
+assert is_even(2494563894038**2) == True, "Test1"
+# assert is_even(1056897**2) == False, "Test2"
+# assert is_even(24945638940387**3) == False, "Test3"
 print("Ok")
-
-
-
-
-
 
 
 
@@ -166,9 +175,9 @@ print("Ok")
 #         print(f"{key} - {users[key]}")
 
 ####
-import csv
+# import csv
 
-FILENAME = "users.csv"
+# FILENAME = "users.csv"
 
 
 # v1
@@ -216,8 +225,8 @@ FILENAME = "users.csv"
 #     for row in reader:
 #         print(row['name'], " - ", row['phone'])
 
-###
-import os
+# ###
+# import os
 
 # os.mkdir("test_folder")
 
