@@ -11,24 +11,44 @@
 
 #ДЗ 12.1 Генератор простих чисел
 
-def prime_generator(end):
+# def prime_generator(end):
+#     for i in range(2, end + 1):
+#         new = True
+#         for q in range(2, i):
+#             if i % q == 0:
+#                 new = False
+#                 break
+#         if new:
+#             yield i
+
+
+# from inspect import isgenerator
+
+# gen = prime_generator(1)
+# assert isgenerator(gen) == True, "Test0"
+# # assert list(prime_generator(10)) == [2, 3, 5, 7], "Test1"
+# # assert list(prime_generator(15)) == [2, 3, 5, 7, 11, 13], "Test2"
+# assert list(prime_generator(29)) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29], "Test3"
+# print("Ok")
+
+#ДЗ 12.2. Заповнення списку кубами чисел
+
+def generate_cube_numbers(end):
     for i in range(2, end + 1):
-        new = True
-        for q in range(2, i):
-            if i % q == 0:
-                new = False
-                break
-        if new:
-            yield i
+        cub = i**3
+        if cub > end:
+            return
+        yield cub
 
 
 from inspect import isgenerator
 
-gen = prime_generator(1)
+gen = generate_cube_numbers(1)
 assert isgenerator(gen) == True, "Test0"
-# assert list(prime_generator(10)) == [2, 3, 5, 7], "Test1"
-# assert list(prime_generator(15)) == [2, 3, 5, 7, 11, 13], "Test2"
-assert list(prime_generator(29)) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29], "Test3"
+
+assert list(generate_cube_numbers(10)) == [8], "оскільки воно менше 10."
+# assert list(generate_cube_numbers(100)) == [8, 27, 64], '5 у кубі це 125, а воно вже більше 100'
+# assert list(generate_cube_numbers(1000)) == [8, 27, 64, 125, 216, 343, 512, 729, 1000], '10 у кубі це 1000'
 print("Ok")
 
 
