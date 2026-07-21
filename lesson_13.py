@@ -1,33 +1,122 @@
 # import codecs
 # import re
 #
-# ДЗ 13.1
+# ДЗ 13.1 Очистити текст від html-тегів
 
-import codecs
-
-
-def delete_html_tags(html_file, result_file="cleaned.txt"):
-    with codecs.open(html_file, "r", "utf-8") as file:
-        html = file.read()
-        new = ""
-        flag = True
-        for i in html:
-            if i == "<":
-                flag = False
-            elif i == ">":
-                flag = True
-                continue
-            if flag:
-                new += i
-        print(new)
-    with codecs.open(result_file, mode="w", encoding="utf-8") as g:
-        g.write(new)
+# import codecs
 
 
-delete_html_tags("draft.html")
+# def delete_html_tags(html_file, result_file="cleaned.txt"):
+#     with codecs.open(html_file, "r", "utf-8") as file:
+#         html = file.read()
+#         new = ""
+#         flag = True
+#         for i in html:
+#             if i == "<":
+#                 flag = False
+#             elif i == ">":
+#                 flag = True
+#                 continue
+#             if flag:
+#                 new += i
+#         print(new)
+#     with codecs.open(result_file, mode="w", encoding="utf-8") as g:
+#         g.write(new)
+
+
+# delete_html_tags("draft.html")
+
+#ДЗ 13.2 Корзина для покупок
+
+class Item:
+
+    def __init__(self, name, price, description, dimensions):
+        self.price = price
+        self.description = description
+        self.dimensions = dimensions
+        self.name = name
+
+    def __str__(self):
+        return f"Item:\n Name: {self.name},\n Price: {self.price},\n Describe: {self.description}"
+
+
+class User:
+
+    def __init__(self, name, surname, numberphone):
+        self.name = name
+        self.surname = surname
+        self.numberphone = numberphone
+
+    def __str__(self):
+        return f"User name: {self.name},\n User surname: {self.surname},\n User phone: {self.numberphone}"
+
+
+class Purchase:
+    def __init__(self, user):
+        self.products = {}
+        self.user = user
+        self.total = 0
+
+    def add_item(self, item, cnt):
+        self.products[item] = cnt
+
+    def __str__(self):
+        result = f"User name :{self.user.name},\n User surname: {self.user.surname}\n"
+        result += "Items: \n"
+        for key, val in self.products.items():
+            result += f"{key.name}: {val}pcs.\n"
+        return result
+
+    def get_total(self):
+        total = 0
+        for key, val in self.products.items():
+            total += val * key.price
+        return total
+
+
+lemon = Item(
+    "lemon",
+    5,
+    "yellow",
+    "small",
+)
+apple = Item(
+    "apple",
+    2,
+    "red",
+    "middle",
+)
+print(lemon)  # lemon, price: 5
+
+buyer = User("Ivan", "Ursatii", "02628162")
+print(buyer)  # Ivan Ursatii
+
+cart = Purchase(buyer)
+cart.add_item(lemon, 4)
+cart.add_item(apple, 20)
+print(cart)
+"""
+User: Ivan Ursatii
+Items:
+lemon: 4 pcs.
+apple: 20 pcs.
+"""
+assert isinstance(cart.user, User) is True, "Екземпляр класу User"
+assert cart.get_total() == 60, "Всього 60"
+assert cart.get_total() == 60, "Повинно залишатися 60!"
+cart.add_item(apple, 10)
+print(cart)
+"""
+User: Ivan Ursatii
+Items:
+lemon: 4 pcs.
+apple: 10 pcs.
+"""
+
+assert cart.get_total() == 40
 
 ##############################
-# Обробка винятківq
+# Обробка винятків
 
 # v1
 # n1, n2 = 10, 0 # множинне привласнення
