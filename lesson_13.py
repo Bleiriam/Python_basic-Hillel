@@ -28,92 +28,164 @@
 
 #ДЗ 13.2 Корзина для покупок
 
-class Item:
+# class Item:
 
-    def __init__(self, name, price, description, dimensions):
-        self.price = price
-        self.description = description
-        self.dimensions = dimensions
-        self.name = name
+#     def __init__(self, name, price, description, dimensions):
+#         self.price = price
+#         self.description = description
+#         self.dimensions = dimensions
+#         self.name = name
+
+#     def __str__(self):
+#         return f"Item:\n Name: {self.name},\n Price: {self.price},\n Describe: {self.description}"
+
+
+# class User:
+
+#     def __init__(self, name, surname, numberphone):
+#         self.name = name
+#         self.surname = surname
+#         self.numberphone = numberphone
+
+#     def __str__(self):
+#         return f"User name: {self.name},\n User surname: {self.surname},\n User phone: {self.numberphone}"
+
+
+# class Purchase:
+#     def __init__(self, user):
+#         self.products = {}
+#         self.user = user
+#         self.total = 0
+
+#     def add_item(self, item, cnt):
+#         self.products[item] = cnt
+
+#     def __str__(self):
+#         result = f"User name :{self.user.name},\n User surname: {self.user.surname}\n"
+#         result += "Items: \n"
+#         for key, val in self.products.items():
+#             result += f"{key.name}: {val}pcs.\n"
+#         return result
+
+#     def get_total(self):
+#         total = 0
+#         for key, val in self.products.items():
+#             total += val * key.price
+#         return total
+
+
+# lemon = Item(
+#     "lemon",
+#     5,
+#     "yellow",
+#     "small",
+# )
+# apple = Item(
+#     "apple",
+#     2,
+#     "red",
+#     "middle",
+# )
+# print(lemon)  # lemon, price: 5
+
+# buyer = User("Ivan", "Ursatii", "02628162")
+# print(buyer)  # Ivan Ursatii
+
+# cart = Purchase(buyer)
+# cart.add_item(lemon, 4)
+# cart.add_item(apple, 20)
+# print(cart)
+# """
+# User: Ivan Ursatii
+# Items:
+# lemon: 4 pcs.
+# apple: 20 pcs.
+# """
+# assert isinstance(cart.user, User) is True, "Екземпляр класу User"
+# assert cart.get_total() == 60, "Всього 60"
+# assert cart.get_total() == 60, "Повинно залишатися 60!"
+# cart.add_item(apple, 10)
+# print(cart)
+# """
+# User: Ivan Ursatii
+# Items:
+# lemon: 4 pcs.
+# apple: 10 pcs.
+# """
+
+# assert cart.get_total() == 40
+
+# ДЗ 14.1. Група студентів
+
+class Human:
+
+    def __init__(self, gender, age, first_name, last_name):
+        self.gender = gender
+        self.age = age
+        self.first_name = first_name
+        self.last_name = last_name
 
     def __str__(self):
-        return f"Item:\n Name: {self.name},\n Price: {self.price},\n Describe: {self.description}"
+        return f"Human: Gender: {self.gender}, age - {self.age} name: {self.first_name} last name: {self.last_name}"
 
 
-class User:
+class Student(Human):
 
-    def __init__(self, name, surname, numberphone):
-        self.name = name
-        self.surname = surname
-        self.numberphone = numberphone
-
-    def __str__(self):
-        return f"User name: {self.name},\n User surname: {self.surname},\n User phone: {self.numberphone}"
-
-
-class Purchase:
-    def __init__(self, user):
-        self.products = {}
-        self.user = user
-        self.total = 0
-
-    def add_item(self, item, cnt):
-        self.products[item] = cnt
+    def __init__(self, gender, age, first_name, last_name, record_book):
+        super().__init__(gender, age, first_name, last_name)
+        self.record_book = record_book
 
     def __str__(self):
-        result = f"User name :{self.user.name},\n User surname: {self.user.surname}\n"
-        result += "Items: \n"
-        for key, val in self.products.items():
-            result += f"{key.name}: {val}pcs.\n"
-        return result
-
-    def get_total(self):
-        total = 0
-        for key, val in self.products.items():
-            total += val * key.price
-        return total
+        return f"{super().__str__()}, record_book: {self.record_book}"
 
 
-lemon = Item(
-    "lemon",
-    5,
-    "yellow",
-    "small",
-)
-apple = Item(
-    "apple",
-    2,
-    "red",
-    "middle",
-)
-print(lemon)  # lemon, price: 5
+class Group:
 
-buyer = User("Ivan", "Ursatii", "02628162")
-print(buyer)  # Ivan Ursatii
+    def __init__(self, number):
+        self.number = number
+        self.group = set()
 
-cart = Purchase(buyer)
-cart.add_item(lemon, 4)
-cart.add_item(apple, 20)
-print(cart)
-"""
-User: Ivan Ursatii
-Items:
-lemon: 4 pcs.
-apple: 20 pcs.
-"""
-assert isinstance(cart.user, User) is True, "Екземпляр класу User"
-assert cart.get_total() == 60, "Всього 60"
-assert cart.get_total() == 60, "Повинно залишатися 60!"
-cart.add_item(apple, 10)
-print(cart)
-"""
-User: Ivan Ursatii
-Items:
-lemon: 4 pcs.
-apple: 10 pcs.
-"""
+    def add_student(self, student):
+        self.group.add(student)
 
-assert cart.get_total() == 40
+    def delete_student(self, last_name):
+        student = self.find_student(last_name)
+        if student is not None:
+            self.group.discard(student)
+
+    def find_student(self, last_name):
+        for i in self.group:
+            if i.last_name == last_name:
+                return i
+        return None
+
+    def __str__(self):
+        all_students = ""
+        for www in self.group:
+            all_students += str(www) + "\n"
+        return f"Number:{self.number}\n {all_students} "
+
+
+st1 = Student("Male", 30, "Steve", "Jobs", "AN142")
+st2 = Student("Female", 25, "Liza", "Taylor", "AN145")
+gr = Group("PD1")
+gr.add_student(st1)
+gr.add_student(st2)
+print(gr)
+assert str(gr.find_student("Jobs")) == str(st1), "Test1"
+assert gr.find_student("Jobs2") is None, "Test2"
+assert (
+    isinstance(gr.find_student("Jobs"), Student) is True
+), "Метод пошуку повинен повертати екземпляр"
+
+gr.delete_student("Taylor")
+print(gr)  # Only one student
+
+gr.delete_student("Taylor")  # No error!
+
+
+
+
 
 ##############################
 # Обробка винятків
